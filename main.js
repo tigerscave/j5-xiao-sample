@@ -5,22 +5,9 @@ const board = new Board();
 const PWM_RANGE_MIN = 560
 const PWM_RANGE_MAX = 2480
 
-const TB6612_AIN1 = 0
-const TB6612_AIN2 = 1
-const TB6612_BIN1 = 2
-const TB6612_BIN2 = 3
-const TB6612_STBY = 8
-
 const cal = (x) => five.Fn.map(x, 0, 320, 0, 288)
 
 board.on("ready", () => {
-
-  board.pinMode(TB6612_AIN1, board.MODES.OUTPUT);
-  board.pinMode(TB6612_AIN2, board.MODES.OUTPUT);
-  board.pinMode(TB6612_BIN1, board.MODES.OUTPUT);
-  board.pinMode(TB6612_BIN2, board.MODES.OUTPUT);
-  board.pinMode(TB6612_STBY, board.MODES.OUTPUT);
-
   console.log(board)
   const servo1 = new Servo({
     controller: "PCA9685",
@@ -96,5 +83,4 @@ board.on("ready", () => {
     leftMotor.stop();
     rightMotor.stop();
   }, 6000)
-
 });
