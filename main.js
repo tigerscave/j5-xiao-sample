@@ -7,8 +7,21 @@ const PWM_RANGE_MAX = 2480
 
 const cal = (x) => five.Fn.map(x, 0, 320, 0, 288)
 
+const TB6612_AIN1 = 0
+const TB6612_AIN2 = 1
+const TB6612_BIN1 = 2
+const TB6612_BIN2 = 3
+const TB6612_STBY = 8
+
 board.on("ready", () => {
   console.log(board)
+
+  board.pinMode(TB6612_AIN1, board.MODES.OUTPUT);
+  board.pinMode(TB6612_AIN2, board.MODES.OUTPUT);
+  board.pinMode(TB6612_BIN1, board.MODES.OUTPUT);
+  board.pinMode(TB6612_BIN2, board.MODES.OUTPUT);
+  board.pinMode(TB6612_STBY, board.MODES.OUTPUT);
+  
   const servo1 = new Servo({
     controller: "PCA9685",
     pin: 0,
